@@ -56,25 +56,24 @@ namespace PlayerWeapons
         printf("ShootArrow Hooked\n");
     }
 
-    // Attack Hook
+    // IsShootingArrow Hook
 
-    void(__fastcall* Attack_orig)(DWORD*, DWORD*);
+    bool(__fastcall* IsShootingArrow_orig)(DWORD*, DWORD*);
 
-    void __fastcall Attack_Hook(DWORD* __this, DWORD* method)
+    bool __fastcall IsShootingArrow_Hook(DWORD* __this, DWORD* method)
     {
-        if (globals::InfAttack)
-            Attack_orig(__this, method);
+        return false;
     }
 
-    void AttackFunc()
+    void IsShootingArrowFunc()
     {
         // Create hook
-        MH_CreateHook((LPVOID)(gameAssembly + Attack), Attack_Hook, reinterpret_cast<LPVOID*>(&Attack_orig));
+        MH_CreateHook((LPVOID)(gameAssembly + IsShootingArrow), ShootArrow_Hook, reinterpret_cast<LPVOID*>(&IsShootingArrow_orig));
 
         // Enable hook
-        MH_EnableHook((LPVOID)(gameAssembly + Attack));
+        MH_EnableHook((LPVOID)(gameAssembly + IsShootingArrow));
 
-        printf("ShootArrow Hooked\n");
+        printf("IsShootingArrow Hooked\n");
     }
 }
 

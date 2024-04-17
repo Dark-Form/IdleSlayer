@@ -52,7 +52,7 @@ HRESULT __stdcall hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT 
 			PlayerInventory::AddCoinsFunc();
 
 			PlayerWeapons::ShootArrowFunc();
-			PlayerWeapons::AttackFunc();
+			PlayerWeapons::IsShootingArrowFunc();
 
 			PlayerMovement::IsGroundedFunc();
 			PlayerMovement::FastBoostFunc();
@@ -93,9 +93,9 @@ HRESULT __stdcall hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT 
 			{
 				ImGui::Spacing();
 				ImGui::Checkbox("InfShoot", &globals::InfShoot);
+				ImGui::Checkbox("InfAttack", &globals::InfAttack);
 				ImGui::Checkbox("InfJump", &globals::InfJump);
 				ImGui::Checkbox("FastBoost", &globals::FastBoost);
-				ImGui::Checkbox("Trail Effect", &globals::TrailEffect);
 			}
 
 			ImGui::End();
