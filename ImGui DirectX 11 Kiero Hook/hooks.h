@@ -31,27 +31,6 @@ namespace PlayerInventory
 
         printf("AddCoins Hooked\n");
     }
-
-    // CPSBonusBought Hook
-
-    void(__fastcall* CoinsPerSecond_orig)(DWORD*, DWORD*);
-
-    void __fastcall CoinsPerSecond_Hook(DWORD* __this, DWORD* method)
-    {
-        if (globals::FastCps)
-            CoinsPerSecond_orig(__this, method);
-    }
-
-    void CoinsPerSecondFunc()
-    {
-        // Create hook
-        MH_CreateHook((LPVOID)(gameAssembly + CPSBonusBought), CoinsPerSecond_Hook, reinterpret_cast<LPVOID*>(&CoinsPerSecond_orig));
-
-        // Enable hook
-        MH_EnableHook((LPVOID)(gameAssembly + CPSBonusBought));
-
-        printf("CPSBonusBought Hooked\n");
-    }
 }
 
 namespace PlayerWeapons
@@ -77,24 +56,25 @@ namespace PlayerWeapons
         printf("ShootArrow Hooked\n");
     }
 
-    // IsShootingArrow Hook
+    // Attack Hook
 
-    bool(__fastcall* IsShootingArrow_orig)(DWORD*, DWORD*);
+    void(__fastcall* Attack_orig)(DWORD*, DWORD*);
 
-    bool __fastcall IsShootingArrow_Hook(DWORD* __this, DWORD* method)
+    void __fastcall Attack_Hook(DWORD* __this, DWORD* method)
     {
-        return false;
+        if (globals::InfAttack)
+            Attack_orig(__this, method);
     }
 
-    void IsShootingArrowFunc()
+    void AttackFunc()
     {
         // Create hook
-        MH_CreateHook((LPVOID)(gameAssembly + IsShootingArrow), ShootArrow_Hook, reinterpret_cast<LPVOID*>(&IsShootingArrow_orig));
+        MH_CreateHook((LPVOID)(gameAssembly + Attack), Attack_Hook, reinterpret_cast<LPVOID*>(&Attack_orig));
 
         // Enable hook
-        MH_EnableHook((LPVOID)(gameAssembly + IsShootingArrow));
+        MH_EnableHook((LPVOID)(gameAssembly + Attack));
 
-        printf("IsShootingArrow Hooked\n");
+        printf("ShootArrow Hooked\n");
     }
 }
 
@@ -121,27 +101,6 @@ namespace PlayerMovement {
 
         // Enable hook
         MH_EnableHook((LPVOID)(gameAssembly + IsGrounded));
-
-        printf("IsGrounded Hooked\n");
-    }
-
-    // TrailEffect Hook
-
-    void(__fastcall* TrailEffect_orig)(DWORD*, DWORD*);
-
-    void __fastcall TrailEffect_Hook(DWORD* __this, DWORD* method)
-    {
-        if (globals::TrailEffect)
-            TrailEffect_orig(__this, method);
-    }
-
-    void TrailEffectFunc()
-    {
-        // Create hook
-        MH_CreateHook((LPVOID)(gameAssembly + TrailEffect), TrailEffect_Hook, reinterpret_cast<LPVOID*>(&TrailEffect_orig));
-
-        // Enable hook
-        MH_EnableHook((LPVOID)(gameAssembly + TrailEffect));
 
         printf("IsGrounded Hooked\n");
     }

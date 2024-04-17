@@ -52,11 +52,10 @@ HRESULT __stdcall hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT 
 			PlayerInventory::AddCoinsFunc();
 
 			PlayerWeapons::ShootArrowFunc();
-			PlayerWeapons::IsShootingArrowFunc();
+			PlayerWeapons::AttackFunc();
 
 			PlayerMovement::IsGroundedFunc();
 			PlayerMovement::FastBoostFunc();
-			PlayerMovement::TrailEffectFunc();
 		}
 
 		else

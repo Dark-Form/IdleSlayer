@@ -4,11 +4,10 @@ uintptr_t gameAssembly = (uintptr_t)GetModuleHandle("GameAssembly.dll");
 
 // PlayerInventory
 uintptr_t AddCoins = 0x35E410; // PlayerInventory$$AddCoins
-uintptr_t CPSBonusBought = 0x363E00; // JewelsOfSoulManager$$CPSBonusBought
 
 // PlayerWeapons
 uintptr_t ShootArrow = 0x22BDD0; // PlayerMovement$$ShootArrow
-uintptr_t IsShootingArrow = 0x22B560; // PlayerMovement$$IsShootingArrow
+uintptr_t Attack = 0x22A2B0; // PlayerMovement$$Attack
 
 // PlayerMovement
 uintptr_t BoostIsActive = 0x2B8EE0; // SpiritBoost$$PickedUp

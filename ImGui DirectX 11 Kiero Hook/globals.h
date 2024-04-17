@@ -9,6 +9,7 @@ namespace globals
 	bool FastBoost;
 
 	bool InfJump;
+
 	bool InfShoot;
-	bool TrailEffect;
+	bool InfAttack;
 }
