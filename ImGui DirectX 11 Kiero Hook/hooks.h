@@ -125,6 +125,27 @@ namespace PlayerMovement {
         printf("IsGrounded Hooked\n");
     }
 
+    // TrailEffect Hook
+
+    void(__fastcall* TrailEffect_orig)(DWORD*, DWORD*);
+
+    void __fastcall TrailEffect_Hook(DWORD* __this, DWORD* method)
+    {
+        if (globals::TrailEffect)
+            TrailEffect_orig(__this, method);
+    }
+
+    void TrailEffectFunc()
+    {
+        // Create hook
+        MH_CreateHook((LPVOID)(gameAssembly + TrailEffect), TrailEffect_Hook, reinterpret_cast<LPVOID*>(&TrailEffect_orig));
+
+        // Enable hook
+        MH_EnableHook((LPVOID)(gameAssembly + TrailEffect));
+
+        printf("IsGrounded Hooked\n");
+    }
+
     // DecreaseCD hook
 
     void(__fastcall* FastBoost_orig)(DWORD*, float, DWORD*);

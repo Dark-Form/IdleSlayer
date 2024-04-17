@@ -50,13 +50,13 @@ HRESULT __stdcall hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT 
 			freopen_s(&f, "CONOUT$", "w", stdout);
 
 			PlayerInventory::AddCoinsFunc();
-			PlayerInventory::CPSBonusBoughtFunc();
 
 			PlayerWeapons::ShootArrowFunc();
 			PlayerWeapons::IsShootingArrowFunc();
 
 			PlayerMovement::IsGroundedFunc();
 			PlayerMovement::FastBoostFunc();
+			PlayerMovement::TrailEffectFunc();
 		}
 
 		else
@@ -88,7 +88,6 @@ HRESULT __stdcall hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT 
 			{
 				ImGui::Spacing();
 				ImGui::Checkbox("InfCoins", &globals::InfCoins);
-				ImGui::Checkbox("FastCps", &globals::FastCps);
 			}
 
 			if (globals::tab == 1)
@@ -97,6 +96,7 @@ HRESULT __stdcall hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT 
 				ImGui::Checkbox("InfShoot", &globals::InfShoot);
 				ImGui::Checkbox("InfJump", &globals::InfJump);
 				ImGui::Checkbox("FastBoost", &globals::FastBoost);
+				ImGui::Checkbox("Trail Effect", &globals::TrailEffect);
 			}
 
 			ImGui::End();

@@ -7,8 +7,8 @@ namespace globals
 
 	bool InfCoins;
 	bool FastBoost;
-	bool FastCps;
 
 	bool InfJump;
 	bool InfShoot;
+	bool TrailEffect;
 }
