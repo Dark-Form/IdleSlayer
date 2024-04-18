@@ -127,3 +127,29 @@ namespace PlayerMovement {
         printf("DecreaseCD Hooked\n");
     }
 }
+
+namespace world
+{
+    // SpawnPortal hook
+
+    double(__fastcall* PortalCooldown_orig)(DWORD*, DWORD*);
+
+    double __fastcall PortalCooldown_Hook(DWORD* this__, DWORD* method)
+    {
+        if (globals::FastPortal)
+            return 999999999999.9;
+
+        return PortalCooldown_orig(this__, method);
+    }
+
+    void FastPortalfunc()
+    {
+        // Create hook
+        MH_CreateHook((LPVOID)(gameAssembly + PortalCooldown), PortalCooldown_Hook, reinterpret_cast<LPVOID*>(&PortalCooldown_orig));
+
+        // Enable hook
+        MH_EnableHook((LPVOID)(gameAssembly + PortalCooldown));
+
+        printf("PortalCooldown Hooked\n");
+    }
+}

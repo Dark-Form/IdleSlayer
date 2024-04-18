@@ -12,4 +12,6 @@ namespace globals
 
 	bool InfShoot;
 	bool InfAttack;
+
+	bool FastPortal;
 }

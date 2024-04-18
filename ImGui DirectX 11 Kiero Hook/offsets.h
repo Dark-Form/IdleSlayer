@@ -18,3 +18,6 @@ uintptr_t TrailEffect = 0x22D420; // PlayerMovement$$TrailEffect
 
 // Abilities
 uintptr_t DecreaseCD = 0x2403A0; // Ability$$DecreaseCD
+
+// World
+uintptr_t PortalCooldown = 0x249990; // PortalButton$$GetCD

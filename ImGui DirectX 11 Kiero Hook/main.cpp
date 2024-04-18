@@ -56,6 +56,8 @@ HRESULT __stdcall hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT 
 
 			PlayerMovement::IsGroundedFunc();
 			PlayerMovement::FastBoostFunc();
+
+			world::FastPortalfunc();
 		}
 
 		else
@@ -73,7 +75,7 @@ HRESULT __stdcall hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT 
 		{
 			ImGui::SetNextWindowSize(ImVec2(700, 450));
 			ImGui::Begin("Idle Slayer - By DarkForm", nullptr, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoCollapse);
-			ImVec2 buttonSize = ImVec2(ImGui::GetContentRegionAvail().x / 2 - ImGui::GetStyle().ItemSpacing.x * 0.5f - 10, 25);
+			ImVec2 buttonSize = ImVec2(ImGui::GetContentRegionAvail().x / 3 - ImGui::GetStyle().ItemSpacing.x * 0.5f - 10, 25);
 
 			ImGui::SameLine();
 			if (ImGui::Button("Main", buttonSize))
@@ -83,19 +85,28 @@ HRESULT __stdcall hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT 
 			if (ImGui::Button("Misc", buttonSize))
 				globals::tab = 1;
 
+			ImGui::SameLine();
+			if (ImGui::Button("World", buttonSize))
+				globals::tab = 2;
+
 			if (globals::tab == 0)
 			{
 				ImGui::Spacing();
-				ImGui::Checkbox("InfCoins", &globals::InfCoins);
+				ImGui::Checkbox("Inf Coins", &globals::InfCoins);
 			}
 
 			if (globals::tab == 1)
 			{
 				ImGui::Spacing();
-				ImGui::Checkbox("InfShoot", &globals::InfShoot);
-				ImGui::Checkbox("InfAttack", &globals::InfAttack);
-				ImGui::Checkbox("InfJump", &globals::InfJump);
-				ImGui::Checkbox("FastBoost", &globals::FastBoost);
+				ImGui::Checkbox("Inf Shoot", &globals::InfShoot);
+				ImGui::Checkbox("Inf Jump", &globals::InfJump);
+				ImGui::Checkbox("Fast Boost", &globals::FastBoost);
+			}
+
+			if (globals::tab == 2)
+			{
+				ImGui::Spacing();
+				ImGui::Checkbox("Fast Portal", &globals::FastPortal);
 			}
 
 			ImGui::End();
