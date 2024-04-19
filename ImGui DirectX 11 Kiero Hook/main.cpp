@@ -56,8 +56,6 @@ HRESULT __stdcall hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT 
 
 			PlayerMovement::IsGroundedFunc();
 			PlayerMovement::FastBoostFunc();
-
-			world::FastPortalfunc();
 		}
 
 		else
