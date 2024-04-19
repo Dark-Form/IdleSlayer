@@ -14,7 +14,6 @@ void SetupImGuiStyle()
 	ImGuiStyle& style = ImGui::GetStyle();
 	
 	style.Alpha = 1.0f;
-	style.DisabledAlpha = 0.6000000238418579f;
 	style.WindowPadding = ImVec2(8.0f, 8.0f);
 	style.WindowRounding = 0.0f;
 	style.WindowBorderSize = 1.0f;
@@ -30,7 +29,6 @@ void SetupImGuiStyle()
 	style.FrameBorderSize = 1.0f;
 	style.ItemSpacing = ImVec2(8.0f, 4.0f);
 	style.ItemInnerSpacing = ImVec2(4.0f, 4.0f);
-	style.CellPadding = ImVec2(4.0f, 2.0f);
 	style.IndentSpacing = 21.0f;
 	style.ColumnsMinSpacing = 6.0f;
 	style.ScrollbarSize = 14.0f;
@@ -39,7 +37,6 @@ void SetupImGuiStyle()
 	style.GrabRounding = 0.0f;
 	style.TabRounding = 0.0f;
 	style.TabBorderSize = 1.0f;
-	style.TabMinWidthForCloseButton = 0.0f;
 	style.ColorButtonPosition = ImGuiDir_Right;
 	style.ButtonTextAlign = ImVec2(0.5f, 0.5f);
 	style.SelectableTextAlign = ImVec2(0.0f, 0.0f);
@@ -86,11 +83,6 @@ void SetupImGuiStyle()
 	style.Colors[ImGuiCol_PlotLinesHovered] = ImVec4(1.0f, 0.0f, 0.0f, 1.0f);
 	style.Colors[ImGuiCol_PlotHistogram] = ImVec4(0.8980392217636108f, 0.0f, 0.0f, 1.0f);
 	style.Colors[ImGuiCol_PlotHistogramHovered] = ImVec4(0.364705890417099f, 0.0f, 0.0f, 1.0f);
-	style.Colors[ImGuiCol_TableHeaderBg] = ImVec4(0.3019607961177826f, 0.3019607961177826f, 0.3019607961177826f, 1.0f);
-	style.Colors[ImGuiCol_TableBorderStrong] = ImVec4(0.1372549086809158f, 0.1372549086809158f, 0.1372549086809158f, 1.0f);
-	style.Colors[ImGuiCol_TableBorderLight] = ImVec4(0.1372549086809158f, 0.1372549086809158f, 0.1372549086809158f, 1.0f);
-	style.Colors[ImGuiCol_TableRowBg] = ImVec4(0.0f, 0.0f, 0.0f, 0.0f);
-	style.Colors[ImGuiCol_TableRowBgAlt] = ImVec4(1.0f, 1.0f, 1.0f, 0.05999999865889549f);
 	style.Colors[ImGuiCol_TextSelectedBg] = ImVec4(0.2627451121807098f, 0.6352941393852234f, 0.8784313797950745f, 0.4377682209014893f);
 	style.Colors[ImGuiCol_DragDropTarget] = ImVec4(0.4666666686534882f, 0.1843137294054031f, 0.1843137294054031f, 0.9656652212142944f);
 	style.Colors[ImGuiCol_NavHighlight] = ImVec4(0.407843142747879f, 0.407843142747879f, 0.407843142747879f, 1.0f);
