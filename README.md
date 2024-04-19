@@ -9,3 +9,5 @@ Currently Has:
   <li>Fast boost</li>
   <li>Inf Coins</li>
 </ul>
+
+I will add more later decided I wanna work on this a tad more here and there
