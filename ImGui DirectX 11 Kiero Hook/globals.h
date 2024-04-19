@@ -6,7 +6,11 @@ namespace globals
 	int tab;
 
 	bool InfCoins;
+	bool InfSouls;
+	bool InfSlayerPoints;
+
 	bool FastBoost;
+	bool FastRage;
 
 	bool InfJump;
 
@@ -14,4 +18,5 @@ namespace globals
 	bool InfAttack;
 
 	bool FastPortal;
+	bool SpawnGiant;
 }

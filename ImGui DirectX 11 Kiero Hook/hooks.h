@@ -104,7 +104,7 @@ namespace PlayerMovement {
         printf("IsGrounded Hooked\n");
     }
 
-    // DecreaseCD hook
+    // boostCD hook
 
     void(__fastcall* FastBoost_orig)(DWORD*, float, DWORD*);
 
@@ -119,11 +119,58 @@ namespace PlayerMovement {
     void FastBoostFunc()
     {
         // Create hook
-        MH_CreateHook((LPVOID)(gameAssembly + DecreaseCD), FastBoost_Hook, reinterpret_cast<LPVOID*>(&FastBoost_orig));
+        MH_CreateHook((LPVOID)(gameAssembly + boostCD), FastBoost_Hook, reinterpret_cast<LPVOID*>(&FastBoost_orig));
 
         // Enable hook
-        MH_EnableHook((LPVOID)(gameAssembly + DecreaseCD));
+        MH_EnableHook((LPVOID)(gameAssembly + boostCD));
 
-        printf("DecreaseCD Hooked\n");
+        printf("boostCD Hooked\n");
+    }
+
+    // RagemodeCD hook
+
+    void(__fastcall* Ragemode_orig)(DWORD*, float, DWORD*);
+
+    void __fastcall Ragemode_Hook(DWORD* this__, float decrease, DWORD* method)
+    {
+        if (globals::FastRage)
+            decrease = 99999.0f;
+
+        Ragemode_orig(this__, decrease, method);
+    }
+
+    void RagemodeFunc()
+    {
+        // Create hook
+        MH_CreateHook((LPVOID)(gameAssembly + RagemodeCD), Ragemode_Hook, reinterpret_cast<LPVOID*>(&Ragemode_orig));
+
+        // Enable hook
+        MH_EnableHook((LPVOID)(gameAssembly + RagemodeCD));
+
+        printf("RagemodeCD Hooked\n");
+    }
+}
+
+namespace World
+{
+    // SpawnPortal hook ( doesnt work as of now )
+
+    void(__fastcall* PortalCD_orig)(DWORD*, DWORD*);
+
+    void __fastcall PortalCD_Hook(DWORD* this__, DWORD* method)
+    {
+        if (globals::FastPortal)
+            PortalCD_orig(this__, method);
+    }
+
+    void FastPortalFunc()
+    {
+        // Create hook
+        MH_CreateHook((LPVOID)(gameAssembly + PortalCD), PortalCD_Hook, reinterpret_cast<LPVOID*>(&PortalCD_orig));
+
+        // Enable hook
+        MH_EnableHook((LPVOID)(gameAssembly + PortalCD));
+
+        printf("SpawnPortal Hooked\n");
     }
 }

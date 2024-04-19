@@ -17,7 +17,8 @@ uintptr_t IsGrounded = 0x22B350; // PlayerMovement$$IsGrounded
 uintptr_t TrailEffect = 0x22D420; // PlayerMovement$$TrailEffect
 
 // Abilities
-uintptr_t DecreaseCD = 0x2403A0; // Ability$$DecreaseCD
+uintptr_t boostCD = 0x2403A0; // Ability$$DecreaseCD
+uintptr_t RagemodeCD = 0x24EA80; // RageModeManager$$DecreaseCD
 
 // World
-uintptr_t PortalCooldown = 0x249990; // PortalButton$$GetCD
+uintptr_t PortalCD = 0x34F7C0; // PortalButton$$SpawnPortal
